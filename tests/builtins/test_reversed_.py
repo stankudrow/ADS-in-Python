@@ -2,7 +2,7 @@
 """The tests on sequence reversion implementations."""
 
 
-from typing import Callable, Sequence
+from typing import Sequence
 
 from pytest import mark, param
 
@@ -11,21 +11,7 @@ from adspy.builtins.reversed_ import (
     reversed_recursive,
 )
 
-
-class Result:
-    """A Future-like interface."""
-
-    def __init__(self, func: Callable, /, *args, **kwargs):
-        try:
-            self._result = func(*args, **kwargs)
-        except BaseException as bexc:
-            self._result = bexc
-
-    def result(self):
-        """May return the result."""
-        if isinstance(self._result, BaseException):
-            raise self._result
-        return self._result
+from ..results import Result
 
 
 @mark.parametrize(
@@ -45,17 +31,15 @@ class Result:
 )
 def test_reversed(seq: Sequence):
     """test_reversed implementations."""
-    results = list(
+    results = map(
+        list,
         map(
-            list,
-            map(
-                lambda fut: fut.result(),
-                [
-                    Result(reversed_iterative, seq),
-                    Result(reversed_recursive, seq),
-                ],
-            ),
-        )
+            lambda fut: fut.result(),
+            [
+                Result(reversed_iterative, seq),
+                Result(reversed_recursive, seq),
+            ],
+        ),
     )
     expected = list(seq)[::-1]
     for result in results:
