@@ -2,9 +2,9 @@
 """The tests on sequence reversion implementations."""
 
 
-from typing import Callable, List, Sequence
+from typing import Callable, Sequence
 
-from pytest import fixture, mark, param
+from pytest import mark, param
 
 from adspy.builtins.reversed_ import (
     reversed_iterative,
@@ -28,10 +28,9 @@ class Result:
         return self._result
 
 
-@fixture(scope="module", name="seqs")
-def sequences() -> List[Sequence]:
-    """Samples."""
-    return [
+@mark.parametrize(
+    "seq",
+    [
         "",
         "1",
         "ab",
@@ -42,10 +41,8 @@ def sequences() -> List[Sequence]:
             (i for i in range(5)),
             marks=mark.xfail(reason="Generator"),
         ),
-    ]
-
-
-@mark.parametrize("seq", ["seqs"])
+    ],
+)
 def test_reversed(seq: Sequence):
     """test_reversed implementations."""
     results = list(
