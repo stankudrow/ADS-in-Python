@@ -34,6 +34,8 @@ Note: assuming that we are in the root directory of the project.
 
   - [Pytest](https://docs.pytest.org/en/latest/) is a powerful test framework with numerous plug-ins:
 
+    - [pytest-bdd](https://pytest-bdd.readthedocs.io/en/stable/)
+    - [pytest-benchmark](https://pytest-benchmark.readthedocs.io/en/latest/index.html)
     - [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/) - coverage reports
 
 - Code style:
