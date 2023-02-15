@@ -2,7 +2,6 @@
 """The Fibonacci sequence test suite."""
 
 
-from concurrent.futures import ProcessPoolExecutor, as_completed
 from pytest import mark, param
 
 from adspy.math.fibonacci import (
@@ -10,6 +9,8 @@ from adspy.math.fibonacci import (
     fibonacci_iterative,
     fibonacci_generator_iterative,
 )
+
+from ..results import Result
 
 
 @mark.parametrize(
@@ -38,12 +39,11 @@ def test_nth_fibonacci(nth_nbr: int, expected: int):
     ValueError
         if nth_nbr < 1.
     """
-    with ProcessPoolExecutor() as executor:
-        futures = [
-            executor.submit(fibonacci_recursive, nth_nbr),
-            executor.submit(fibonacci_iterative, nth_nbr),
-        ]
-    for fut in as_completed(futures):
+    futures = [
+        Result(fibonacci_recursive, nth_nbr),
+        Result(fibonacci_iterative, nth_nbr),
+    ]
+    for fut in futures:
         assert fut.result() == expected
 
 
