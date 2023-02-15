@@ -47,8 +47,26 @@ from adspy.flooding.flood_fill import (
                 ["o", "x", "?", "?", ""],
             ],
         ),
-        param([], -1, 1, "x", [], marks=mark.xfail(reason="at least one negative coord.")),
-        param([], 1, -1, "x", [], marks=mark.xfail(reason="at least one negative coord.")),
+        param(
+            [],
+            -1,
+            1,
+            "x",
+            [],
+            marks=mark.xfail(
+                reason="at least one negative coord."
+            ),
+        ),
+        param(
+            [],
+            1,
+            -1,
+            "x",
+            [],
+            marks=mark.xfail(
+                reason="at least one negative coord."
+            ),
+        ),
     ],
 )
 def test_fllod_fill(screen, ycoord, xcoord, newval, result):
