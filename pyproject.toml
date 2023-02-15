@@ -14,8 +14,10 @@ classifiers = [
 dynamic = ["readme", "version"]
 
 [project.optional-dependencies]
-test = ["pytest"]
-cov = ["coverage"]
+qa = ["pytest"]
+bdd = ["pytest-bdd"]
+bench = ["pytest-benchmark"]
+cov = ["pytest-cov"]
 
 [tool.setuptools]
 include-package-data = false
@@ -26,6 +28,9 @@ readme = {file = "README.md", content-type="text/markdown"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.black]
+line-length = 65
 
 [tool.pytest.ini_options]
 minversion = "7.0"
