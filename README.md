@@ -2,6 +2,16 @@
 
 Algorithms and Data Structures in Python programming language.
 
+## Installation
+
+An example of installing the package in editable mode with multiple optional dependencies:
+
+```shell
+pip install -e ".[bdd,bench,cov]"
+```
+
+Note: assuming that we are in the root directory of the project.
+
 ## References
 
 ### Algorithms
@@ -20,5 +30,12 @@ Algorithms and Data Structures in Python programming language.
 
 ### Python QA
 
-- [Pytest](https://docs.pytest.org/en/latest/)
-- [Coverage](https://coverage.readthedocs.io/en/stable/)
+- Testing:
+
+  - [Pytest](https://docs.pytest.org/en/latest/) is a powerful test framework with numerous plug-ins:
+
+    - [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/) - coverage reports
+
+- Code style:
+
+  - [Black](https://black.readthedocs.io/en/stable/index.html) - Python code formatter
