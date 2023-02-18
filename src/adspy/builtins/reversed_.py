@@ -2,7 +2,7 @@
 """The reversed() builtin function."""
 
 
-from typing import Generator, Iterator, Sequence
+from typing import Generator, Sequence
 
 
 def reversed_iterative(sequence: Sequence) -> Generator:

@@ -40,11 +40,13 @@ def sum_recursive(iterable: Iterable, start: int = 0) -> int:
     int
     """
 
-    def sum_rec(iter_: Iterable, last: int) -> int:
+    def sum_rec(iter_: Iterable) -> int:
         """Returns the sum of the elements of the iterable."""
-        if last == 0:
+        try:
+            elem = next(iter_)
+        except StopIteration:
             return 0
-        last -= 1
-        return iter_[last] + sum_rec(iter_, last)
+        return elem + sum_rec(iter_)
 
-    return start + sum_rec(iterable, len(iterable))
+    iterator = iter(iterable)
+    return start + sum_rec(iterator)
