@@ -21,6 +21,7 @@ Note: assuming that we are in the root directory of the project.
 - The Recursive Book of Recursion - Al Sweigart
 - Classic Computer Science Problems in Python - David Kopec
 - Algorithms and Data Structures in Python - Michael T. Goodrich, Robert Tamassia, Michael H. Goldwasser
+- [A First Course on Data Structures in Python](https://donsheehy.github.io/datastructures/) - Donald Sheehy
 
 ### Python packaging
 
