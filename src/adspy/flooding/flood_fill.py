@@ -2,19 +2,6 @@
 """The Flood Fill algorithm."""
 
 
-# Filling an arbitrary shaped area of the same value/colour with another value/colour.
-# Filling is being done until the borders of either area or screen are met.
-#
-# The Origin point is at the top left corner.
-# The X-axis of the screen goes from the left to the right.
-# The Y-axis of the screen goes from the top to the bottom.
-# Also, the order of addressing (__getitem__) nested sequences.
-# These details infer to the reason why x and y coordinates are swapped.
-#
-# References
-#   * he Recursive Book of Recursion - Al Sweigart.
-
-
 from typing import Any, Sequence
 
 
